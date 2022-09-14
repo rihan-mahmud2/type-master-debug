@@ -49,19 +49,22 @@ const typeController = (e) => {
   } else {
     display.innerHTML += `<span class="red">${
       newLetter === " " ? "▪" : newLetter
-    }</span>`;
+      }</span>`;
+    console.log(errorCount++);
   }
 
   // check if given question text is equal to user typed text
-  if (questionText === userText) {
+  if (questionText.length === userText.length) {
     gameOver();
   }
 };
 
 const validate = (key) => {
   if (key === questionText[userText.length - 1]) {
+    
     return true;
   }
+ 
   return false;
 };
 
@@ -73,7 +76,7 @@ const gameOver = () => {
   const finishTime = new Date().getTime();
   const timeTaken = (finishTime - startTime) / 1000;
 
-  // show result modal
+  // show result modal 
   resultModal.innerHTML = "";
   resultModal.classList.toggle("hidden");
   modalBackground.classList.toggle("hidden");
@@ -100,7 +103,8 @@ const gameOver = () => {
 
 const closeModal = () => {
   modalBackground.classList.add("hidden");
-  // resultModal.classList.toggle("hidden");
+  resultModal.classList.add('hidden')
+  
 };
 
 const start = () => {
