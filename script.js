@@ -87,7 +87,7 @@ const gameOver = () => {
   // show result
   resultModal.innerHTML += `
     <h1>Finished!</h1>
-    <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
+    <p>You took: <span class="bold">${Math.floor(timeTaken)}</span> seconds</p>
     <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
@@ -98,6 +98,7 @@ const gameOver = () => {
   startTime = null;
   errorCount = 0;
   userText = "";
+  countdownOverlay.innerText = ''
   display.classList.add("inactive");
 };
 
